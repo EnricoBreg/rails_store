@@ -44,7 +44,7 @@
         <% if authenticated? %>
           <%= button_to "Log out", session_path, method: :delete, class: "btn btn-outline-secondary"%>
         <% else %>
-          <%= button_to "Log in", new_session_path, class: "btn btn-outline-primary"%>
+          <%= link_to "Log in", new_session_path, class: "btn btn-outline-primary"%>
         <% end %>
       </div>
     </nav>
