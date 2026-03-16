@@ -1,13 +1,27 @@
 <h1>Products</h1>
 
-<%= link_to "New products", new_product_path %>
+<%= link_to "New products", new_product_path, class: "btn btn-primary" if authenticated? %>
 
 <div class="products">
-  <% @products.each do |product| %>
-    <div>
-      <a href="/products/<%= product.id %>">
-        <%= link_to product.name, product_path(product) %>
-      </a>
-    </div>
-  <% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <th scope="row"><%= product.id %></th>
+          <td><%= product.name %></td>
+          <td>
+            <%= link_to "Show", product_path(product), class: "btn btn-secondary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
