@@ -1,0 +1,5 @@
+it:
+  hello: "Ciao Mondo"
+  products:
+    index:
+      title: "Prodotti"
