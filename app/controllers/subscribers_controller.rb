@@ -13,7 +13,7 @@ class SubscribersController < ApplicationController
 
   private
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.find(params[:product_id])
     end
 
     def subscriber_params
