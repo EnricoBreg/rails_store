@@ -3,11 +3,12 @@
 <%= link_to "New products", new_product_path, class: "btn btn-primary" if authenticated? %>
 
 <div class="products">
-  <table class="table">
+  <table class="table table-striped align-middle">
     <thead>
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Name</th>
+        <th scope="col">Inventory count</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
         <tr>
           <th scope="row"><%= product.id %></th>
           <td><%= product.name %></td>
+          <td><%= product.inventory_count %></td>
           <td>
             <%= link_to "Show", product_path(product), class: "btn btn-secondary" %>
           </td>

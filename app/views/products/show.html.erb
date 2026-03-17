@@ -15,7 +15,8 @@
     <% cache @product do %>
       <h1><%= @product.name %></h1>
       <%= @product.description %>
-    <% end %>
+      <p><strong>Inventory count: </strong><%= @product.inventory_count %></p>
+    <% end %>    
   </div>
 </div>
 <% if authenticated? %>
