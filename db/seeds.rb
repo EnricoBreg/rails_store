@@ -12,6 +12,7 @@ User.create!(email_address: "admin@example.com", password: "password")
 50.times do
   Product.create!(
     name: Faker::Commerce.product_name,
-    description: Faker::Lorem.paragraph
+    description: Faker::Lorem.paragraph,
+    inventory_count: rand(1..100)
   )
 end
