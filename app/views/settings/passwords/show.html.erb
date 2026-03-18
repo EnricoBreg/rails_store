@@ -1,0 +1,33 @@
+<h1>Reset password</h1>
+<%= form_with model: Current.user, url: settings_password_path do |form| %>
+  <% if form.object.errors.any? %>
+  <%# Rendering messaggi di errore %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= form.object.errors.full_messages.first %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+
+  <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <%= form.label :password_challenge, class: "form-label" %>
+      <%= form.password_field :password_challenge, class: "form-control", required: true, autocomplete: "current-password" %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <%= form.label :password, class: "form-label" %>
+      <%= form.password_field :password, class: "form-control", required: true, autocomplete: "new-password" %>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <%= form.label :password_confirmation, class: "form-label" %>
+      <%= form.password_field :password_confirmation, class: "form-control", required: true, autocomplete: "new-password" %>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <%= form.submit "Update password", class: "btn btn-primary" %>
+  </div>
+<% end %>
