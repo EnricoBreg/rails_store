@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :settings do
     resource :password, only: %i[ show update ]
     resource :profile, only: %i[ show update ]
+    resource :user, only: %i[ show destroy ]
 
     root to: redirect("/settings/profile")
   end

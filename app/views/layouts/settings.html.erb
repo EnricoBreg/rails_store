@@ -7,6 +7,7 @@
         <div class="nav flex-column nav-pills">
           <%= link_to "Profile", settings_profile_path, class: "nav-link #{'active' if current_page?(settings_profile_path)}" %>
           <%= link_to "Password", settings_password_path, class: "nav-link #{"active" if current_page?(settings_password_path)}" %>
+          <%= link_to "Account", settings_user_path, class: "nav-link #{"active" if current_page?(settings_user_path) }" %>
         </div>
       </nav>
       <%# Contenuto %>
