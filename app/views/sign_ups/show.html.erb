@@ -1,0 +1,48 @@
+<div class="row justify-content-center px-6 py-5">
+  <div class="col-12 col-md-10">
+    <div class="card rounded shadow">
+      <div class="card-header text-center">
+        <h1>Sign Up</h1>
+      </div>
+      <div class="card-body">
+        <%= form_with model: @user, url: sign_up_path do |form| %>
+          <% if form.object.errors.any? %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              Error: <%= form.object.errors.full_messages.first %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% end %>
+          <div class="row mb-3">
+            <div class="col-12 col-md-6">
+              <%= form.label :first_name, class: "form-label" %>
+              <%= form.text_field :first_name, class: "form-control", required: true, autofocus: true, autocomplete: "given-name" %>
+            </div>
+            <div class="col-12 col-md-6">
+              <%= form.label :last_name, class: "form-label" %>
+              <%= form.text_field :last_name, class: "form-control", required: true, autocomplete: "family-name" %>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <%= form.label :email_address, class: "form-label" %>
+            <%= form.email_field :email_address, class: "form-control", required: true, autocomplete: "email" %>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <%= form.label :password, class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", required: true, autocomplete: "new-password"%>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+              <%= form.label :password_confirmation, class: "form-label" %>
+              <%= form.password_field :password_confirmation, class: "form-control", required: true, autocomplete: "new-password" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <%= form.submit "Sign Up", class: "btn btn-primary w-100" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
