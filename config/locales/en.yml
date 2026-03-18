@@ -33,3 +33,12 @@ en:
     index:
       title: "Products"
     
+  activerecord:
+    attributes:
+      user:
+        first_name: "First name"
+        last_name: "Last name"
+        email_address: "Email address"
+        password: "Password"
+        password_challenge: "Current password"
+        password_confirmation: "Password confirmation"

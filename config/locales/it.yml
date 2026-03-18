@@ -3,3 +3,13 @@ it:
   products:
     index:
       title: "Prodotti"
+
+  activerecord:
+    attributes:
+      user:
+        first_name: "Nome"
+        last_name: "Cognome"
+        email_address: "Indirizzo email"
+        password: "Password"
+        password_challenge: "Password attuale"
+        password_confirmation: "Conferma password"
