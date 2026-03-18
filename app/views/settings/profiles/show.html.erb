@@ -1,0 +1,31 @@
+<h1>Your profile</h1>
+<%= form_with model: Current.user, url: settings_profile_path do |form| %>
+  <% if form.object.errors.any? %>
+    <%# Rendering messaggi di errore %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= form.object.errors.full_messages.first %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <%= form.label :first_name, class: "form-label" %>
+      <%= form.text_field :first_name, required: true, autocomplete: "given-name", class: "form-control" %>
+    </div>
+    <div class="col-12 col-md-6">
+      <%= form.label :last_name, class: "form-label" %>
+      <%= form.text_field :last_name, required: true, autocomplete: "given-name", class: "form-control" %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <%= form.label :email_address, class: "form-label" %>
+      <%= form.email_field :email_address, required: true, autocomplete: "email", class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <%= form.submit "Update profile", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

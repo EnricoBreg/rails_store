@@ -21,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <%= link_to "Home", root_path, class: "navbar-brand" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <%= link_to "Products", products_path, class: "nav-link" %>
+              <%= link_to "Products", products_path, class: "nav-link #{"active" if current_page?(products_path)}" %>
             </li>
           </ul>
         </div>
@@ -41,7 +41,7 @@
                 <%= Current.user.full_name %>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Change password", settings_password_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Settings", settings_root_path, class: "dropdown-item" %></li>
               </ul>
             </div>
             <%= button_to "Log out", session_path, method: :delete, class: "btn btn-outline-secondary"%>
@@ -54,9 +54,15 @@
         <% end %>
       </div>
     </nav>
-    <main class="container">
+    <main>
       <%= render template: "layouts/shared/flashes" %>
-      <%= yield %>
+      <% if content_for?(:content) %>
+        <%= yield(:content) %>
+      <% else %>
+        <div class="container">
+          <%= yield %>
+        </div>
+      <% end %>
     </main>
   </body>
 </html>

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   namespace :settings do
     resource :password, only: %i[ show update ]
+    resource :profile, only: %i[ show update ]
+
+    root to: redirect("/settings/profile")
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -1,0 +1,20 @@
+<%= content_for :content do %>
+  <section class="settings container-fluid">
+    <div class="row">
+      <%# Sidebar %>
+      <nav class="col-12 col-md-2 bg-light border-end py-4 px-3">
+        <h4 class="mb-4">Account Settings</h4>
+        <div class="nav flex-column nav-pills">
+          <%= link_to "Profile", settings_profile_path, class: "nav-link #{'active' if current_page?(settings_profile_path)}" %>
+          <%= link_to "Password", settings_password_path, class: "nav-link #{"active" if current_page?(settings_password_path)}" %>
+        </div>
+      </nav>
+      <%# Contenuto %>
+      <div class="col-12 col-md-10 py-4 px-4">
+        <%= yield %>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<%= render template: "layouts/application" %>
