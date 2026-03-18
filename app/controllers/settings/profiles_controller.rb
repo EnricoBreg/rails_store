@@ -14,7 +14,7 @@ class Settings::ProfilesController < Settings::BaseController
 
   private
     def profile_params
-      params.expect(user: [ :first_name, :last_name ])
+      params.expect(user: [ :first_name, :last_name, :date_of_birth ])
     end
 
     def set_user

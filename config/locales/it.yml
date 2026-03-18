@@ -13,3 +13,4 @@ it:
         password: "Password"
         password_challenge: "Password attuale"
         password_confirmation: "Conferma password"
+        date_of_birth: "Data di nascita"

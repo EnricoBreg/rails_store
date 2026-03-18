@@ -23,6 +23,10 @@
             </div>
           </div>
           <div class="col-12 mb-3">
+            <%= form.label :date_of_birth, class: "form-label" %>
+            <%= form.date_field :date_of_birth, class: "form-control", autocomplete: "date-of-birth", placeholder: "01/01/1970" %>
+          </div>
+          <div class="col-12 mb-3">
             <%= form.label :email_address, class: "form-label" %>
             <%= form.email_field :email_address, class: "form-control", required: true, autocomplete: "email" %>
           </div>
