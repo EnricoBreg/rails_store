@@ -14,3 +14,4 @@ it:
         password_challenge: "Password attuale"
         password_confirmation: "Conferma password"
         date_of_birth: "Data di nascita"
+        unconfirmed_email: "Nuovo indirizzo email"

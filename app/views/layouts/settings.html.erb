@@ -5,6 +5,7 @@
       <nav class="col-12 col-md-2 bg-light border-end py-4 px-3">
         <h4 class="mb-4">Account Settings</h4>
         <div class="nav flex-column nav-pills">
+          <%= link_to "Email", settings_email_path, class: "nav-link #{"active" if current_page?(settings_email_path)}" %>
           <%= link_to "Profile", settings_profile_path, class: "nav-link #{'active' if current_page?(settings_profile_path)}" %>
           <%= link_to "Password", settings_password_path, class: "nav-link #{"active" if current_page?(settings_password_path)}" %>
           <%= link_to "Account", settings_user_path, class: "nav-link #{"active" if current_page?(settings_user_path) }" %>

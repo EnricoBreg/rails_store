@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :unsubscribe, only: %i[ show ]
 
   namespace :settings do
+    resource :email, only: [ :show, :update ]
     resource :password, only: %i[ show update ]
     resource :profile, only: %i[ show update ]
     resource :user, only: %i[ show destroy ]

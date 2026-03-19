@@ -43,3 +43,4 @@ en:
         password_challenge: "Current password"
         password_confirmation: "Password confirmation"
         date_of_birth: "Date of birth"
+        unconfirmed_email: "New email address"
