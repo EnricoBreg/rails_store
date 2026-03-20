@@ -20,6 +20,9 @@ class Store::UsersController < Store::BaseController
   end
 
   def destroy
+    if @user.admin?
+      redirect_to store_users_path, status: :see_other, alert: "Admin users cannot be deleted." and return
+    end
     @user.destroy
     redirect_to store_users_path, status: :see_other, notice: "User #{@user.full_name} has been deleted successfully."
   end
