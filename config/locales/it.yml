@@ -3,6 +3,11 @@ it:
   products:
     index:
       title: "Prodotti"
+  
+  store:
+    products:
+      index:
+        title: "Prodotti"
 
   activerecord:
     attributes:

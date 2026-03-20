@@ -11,6 +11,7 @@
           <%= link_to "Account", settings_user_path, class: "nav-link #{"active" if current_page?(settings_user_path) }" %>
           <% if Current.user.admin? %>
             <h4>Store Settings</h4>
+            <%= link_to "Products", store_products_path, class: "nav-link #{"active" if current_page?(store_products_path)}" %>
             <%= link_to "Users", store_users_path, class: "nav-link #{"active" if current_page?(store_users_path)}" %>
           <% end %>
         </div>
