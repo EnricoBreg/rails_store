@@ -1,0 +1,22 @@
+<%= form_with model: [ :store, user ] do |form| %>
+  <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <%= form.label :first_name, class: "form-label" %>
+      <%= form.text_field :first_name, class: "form-control", required: true, autofocus: true, autocomplete: "given-name"   %>
+    </div>
+    <div class="col-12 col-md-6">
+      <%= form.label :last_name, class: "form-label" %>
+      <%= form.text_field :last_name, class: "form-control", required: true, autofocus: true, autocomplete: "family-name"   %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <%= form.label :email_address, class: "form-label" %>
+      <%= form.email_field :email_address, class: "form-control", required: true, autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit "Update user", class: "btn btn-primary" %>
+  </div>
+<% end %>

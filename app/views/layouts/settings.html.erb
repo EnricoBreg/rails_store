@@ -9,6 +9,10 @@
           <%= link_to "Email", settings_email_path, class: "nav-link #{"active" if current_page?(settings_email_path)}" %>
           <%= link_to "Password", settings_password_path, class: "nav-link #{"active" if current_page?(settings_password_path)}" %>
           <%= link_to "Account", settings_user_path, class: "nav-link #{"active" if current_page?(settings_user_path) }" %>
+          <% if Current.user.admin? %>
+            <h4>Store Settings</h4>
+            <%= link_to "Users", store_users_path, class: "nav-link #{"active" if current_page?(store_users_path)}" %>
+          <% end %>
         </div>
       </nav>
       <%# Contenuto %>

@@ -1,0 +1,27 @@
+<h1><%= pluralize @users.count, "User" %></h1>
+
+<div class="users">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Full name</th>
+        <th scope="col">Email address</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <th scope="row"><%= user.id %></th>
+          <td><%= user.full_name %></td>
+          <td><%= user.email_address %></td>
+          <td>
+            <%= link_to "Show", store_user_path(user), class: "btn btn-primary" %>
+            <%= link_to "Edit", edit_store_user_path(user), class: "btn btn-secondary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
