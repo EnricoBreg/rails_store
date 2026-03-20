@@ -5,7 +5,8 @@ class Settings::EmailsController < Settings::BaseController
   def update
     user = Current.user
     if user.update(email_params)
-      redirect_to settings_email_path, status: :see_other, notice: "Email updated successfully. We've sent a verification email to #{user.unconfirmed_email}"
+      UserMailer.with(user: user).email_confirmation.deliver_later
+      redirect_to settings_email_path, status: :see_other, notice: "We've sent a verification email to #{user.unconfirmed_email}"
     else
       render :show, status: :unprocessable_entity
     end
