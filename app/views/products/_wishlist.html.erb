@@ -1,0 +1,23 @@
+<% if authenticated? %>
+  <div class="row">
+    <div class="col-12">
+      <%= form_with url: product_wishlist_path(product) do |form| %>
+        <div class="row align-items-center">
+          
+          <% if Current.user.wishlists.any? %>
+            <div class="col-12 col-md-6">
+              <%= form.collection_select :wishlist_id, Current.user.wishlists, :id, :name, {}, class: "form-select"  %>
+            </div>
+          <% end %>
+
+          <div class="col-12 col-md-2">
+            <%= form.submit "Add to wishlist", class: "btn btn-primary" %>
+          </div>
+        
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <p><%= link_to "Add to wishlist", new_session_path, class: "btn btn-primary" %></p>
+<% end %>

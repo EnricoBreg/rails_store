@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
   resource :sign_up
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :products do
     resources :subscribers, only: %i[ create ]
+    resource :wishlist, only: [ :create ], module: :products
   end
   resource :unsubscribe, only: %i[ show ]
 

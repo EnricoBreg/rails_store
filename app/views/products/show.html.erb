@@ -16,6 +16,7 @@
       <h1><%= @product.name %></h1>
       <%= @product.description %>
       <%= render "inventory", product: @product %>
+      <%= render "wishlist", product: @product %>
     <% end %>    
   </div>
 </div>
