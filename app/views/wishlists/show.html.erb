@@ -20,4 +20,7 @@
 <% @wishlist.wishlist_products.includes(:product).each do %>
   <%= link_to it.product.name, it.product %>
   <small>Added <%= l it.created_at, format: :long %></small>
+  <% if authenticated? && @wishlist.user = Current.user %>
+    <%= button_to "Remove", [ @wishlist, it ], method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  <% end %>
 <% end %>

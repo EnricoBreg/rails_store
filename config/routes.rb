@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   resource :unsubscribe, only: %i[ show ]
 
-  resources :wishlists
+  resources :wishlists do
+    resources :wishlist_products, only: [ :update, :destroy ], module: :wishlists
+  end
 
   namespace :settings do
     resource :email, only: [ :show, :update ]
