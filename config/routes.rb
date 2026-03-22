@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
   resource :unsubscribe, only: %i[ show ]
 
+  resources :wishlists
+
   namespace :settings do
     resource :email, only: [ :show, :update ]
     resource :password, only: %i[ show update ]
