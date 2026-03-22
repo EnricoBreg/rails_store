@@ -1,0 +1,75 @@
+<section class="wishlists">
+  <div>
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">By</th>
+          <th scope="col">Products count</th>
+          <th scope="col">Created at</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% wishlists.each do |wishlist| %>
+          <tr>
+            <th scope="row"><%= wishlist.id %></th>
+            <td><%= wishlist.name %></td>
+            <td><%= link_to wishlist.user.full_name, store_user_path(wishlist.user) %></td>
+            <td><%= wishlist.products.count %></td>
+            <td><%= l wishlist.created_at, format: :long %></td>
+            <td>
+              <%= link_to "Show", wishlist_path(wishlist), class: "btn btn-primary" %>
+              <%# Bottone per aprire il modale %>
+              <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#wishlist-<%= wishlist.id %>">
+                Show product in
+              </button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% wishlists.each do |wishlist| %>
+    <!-- Modale -->
+    <div class="modal fade" id="wishlist-<%= wishlist.id %>" tabindex="-1" aria-labelledby="wishlist-<%= wishlist.id %>-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="wishlist-<%= wishlist.id %>-title"><em><%= wishlist.name %></em> products</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <% if wishlist.products.any? %>
+            <%# Tabella per mostrare i prodotti della wishlist %>
+            <div class="table-responsive">
+              <table class="table table-striped mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% wishlist.products.each do |product| %>
+                    <tr>
+                      <td><%= product.id %></td>
+                      <td><%= product.name %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+            <% else %>
+              <p>This wishlist has no products.</p>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>

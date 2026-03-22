@@ -13,6 +13,7 @@
             <h4>Store Settings</h4>
             <%= link_to "Products", store_products_path, class: "nav-link #{"active" if current_page?(store_products_path)}" %>
             <%= link_to "Users", store_users_path, class: "nav-link #{"active" if current_page?(store_users_path)}" %>
+            <%= link_to "Wishlists", store_wishlists_path, class: "nav-link #{"active" if current_page?(store_wishlists_path)}" %>
           <% end %>
         </div>
       </nav>
