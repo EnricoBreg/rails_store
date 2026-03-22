@@ -92,10 +92,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_22_125053) do
     t.datetime "created_at", null: false
     t.integer "product_id", null: false
     t.datetime "updated_at", null: false
-    t.integer "whishlist_id", null: false
-    t.index ["product_id", "whishlist_id"], name: "index_wishlist_products_on_product_id_and_whishlist_id", unique: true
+    t.integer "wishlist_id", null: false
+    t.index ["product_id", "wishlist_id"], name: "index_wishlist_products_on_product_id_and_wishlist_id", unique: true
     t.index ["product_id"], name: "index_wishlist_products_on_product_id"
-    t.index ["whishlist_id"], name: "index_wishlist_products_on_whishlist_id"
+    t.index ["wishlist_id"], name: "index_wishlist_products_on_wishlist_id"
   end
 
   create_table "wishlists", force: :cascade do |t|
@@ -112,6 +112,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_22_125053) do
   add_foreign_key "sessions", "users"
   add_foreign_key "subscribers", "products"
   add_foreign_key "wishlist_products", "products"
-  add_foreign_key "wishlist_products", "whishlists"
+  add_foreign_key "wishlist_products", "wishlists"
   add_foreign_key "wishlists", "users"
 end
