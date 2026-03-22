@@ -1,4 +1,5 @@
 class Store::UsersController < Store::BaseController
+  admin_access_only
   before_action :set_user, only: %i[ show edit update destroy ]
 
   def index

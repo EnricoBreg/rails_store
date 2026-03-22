@@ -1,4 +1,5 @@
 class Store::ProductsController < Store::BaseController
+  admin_access_only
   before_action :set_product, only: %i[ show edit update destroy ]
 
   # GET /products

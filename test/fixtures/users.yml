@@ -12,3 +12,10 @@ two:
   password_digest: <%= password_digest %>
   first_name: User
   last_name: Two
+
+admin:
+  email_address: admin@example.com
+  password_digest: <%= password_digest %>
+  first_name: Admin
+  last_name: User
+  admin: true

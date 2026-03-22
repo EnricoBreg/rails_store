@@ -2,6 +2,8 @@ require "test_helper"
 
 class ProductMailerTest < ActionMailer::TestCase
   test "in_stock" do
+    subscriber = users(:one)
+
     mail = ProductMailer.in_stock
     assert_equal "In stock", mail.subject
     assert_equal [ "to@example.org" ], mail.to
