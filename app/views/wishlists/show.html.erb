@@ -20,7 +20,23 @@
 <% @wishlist.wishlist_products.includes(:product).each do %>
   <%= link_to it.product.name, it.product %>
   <small>Added <%= l it.created_at, format: :long %></small>
-  <% if authenticated? && @wishlist.user = Current.user %>
-    <%= button_to "Remove", [ @wishlist, it ], method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
-  <% end %>
+  <div class="my-2">
+    <div class="col-12">
+      <% if authenticated? && @wishlist.user = Current.user %>
+        <% if (other_wishlists = Current.user.wishlists.excluding(@wishlist)) && other_wishlists.any? %>
+          <%= form_with url: [@wishlist, it], method: :patch do |form| %>
+            <div class="row">
+              <div class="col-10 col-md-6">
+                <%= form.collection_select :new_wishlist_id, other_wishlists, :id, :name, {}, class: "form-select" %>
+              </div>
+              <div class="col-2">
+                <%= form.submit "Move", class: "btn btn-outline-primary" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%= button_to "Remove", [ @wishlist, it ], method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
 <% end %>
