@@ -1,0 +1,31 @@
+<section class="wishlists">
+  <div>
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Email</th>
+          <th scope="col">Product</th>
+          <th scope="col">Created at</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% subscribers.each do |subscriber| %>
+          <tr>
+            <th scope="row"><%= subscriber.id %></th>
+            <td><%= subscriber.email %></td>
+            <td><%= link_to subscriber.product.name, store_product_path(subscriber.product) %></td>
+            <td><%= l subscriber.created_at, format: :long %></td>
+            <td>
+              <%= 
+                button_to "Remove", store_subscriber_path(subscriber), class: "btn btn-danger", method: :delete, 
+                data: { turbo_confirm: "Are you sure?" } 
+              %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
