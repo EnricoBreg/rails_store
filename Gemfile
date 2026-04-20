@@ -53,7 +53,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem "faker", "~> 3.6"
+  gem "faker", "~> 3.8"
 
   gem "htmlbeautifier", "~> 1.3", ">= 1.3.1"
 end
